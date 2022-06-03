@@ -58,7 +58,7 @@ public class PublisherApp implements AutoCloseable {
     }
 
     public static void main(String[] args) throws Exception {
-        try (PublisherApp publisher = new PublisherApp(Const.PROJECT, Const.TOPIC)) {
+        try (PublisherApp publisher = new PublisherApp(Const.PROJECT_NAME, Const.TOPIC_NAME)) {
             publisher.publish();
         }
     }

@@ -15,7 +15,7 @@ public class SubscriberApp {
     private void subscribe() {
         log.debug("Subscribing...");
         ProjectSubscriptionName subscriptionName =
-                ProjectSubscriptionName.of(Const.PROJECT, Const.SUBSCRIPTION);
+                ProjectSubscriptionName.of(Const.PROJECT_NAME, Const.SUBSCRIPTION_NAME);
 
         MessageReceiver receiver = (message, consumer) -> {
             log.info("Received message [{}]: {}", message.getMessageId(),

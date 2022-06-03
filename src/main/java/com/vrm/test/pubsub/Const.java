@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Const {
 
-    public static final String PROJECT = "test-pubsub-352112";
-    public static final String TOPIC = "stonks";
-    public static final String SUBSCRIPTION = TOPIC + "-sub";
+    public static final String PROJECT_NAME = "test-pubsub-352112";
+    public static final String TOPIC_NAME = "stonks";
+    public static final String SUBSCRIPTION_NAME = TOPIC_NAME + "-sub";
+    public static final String SCHEMA_NAME = "stonks-schema";
+    public static final String SCHEMA_FILE = "schema/stock.avsc";
 
 }

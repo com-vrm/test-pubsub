@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "Stock",
+  "namespace": "com.vrm.test.pubsub.model",
+  "fields": [
+    {
+      "name": "symbol",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "double"
+    }
+  ]
+}
