@@ -7,6 +7,8 @@ import com.google.pubsub.v1.PubsubMessage;
 import com.google.pubsub.v1.TopicName;
 import com.vrm.test.pubsub.model.Stock;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.avro.io.Encoder;
+import org.apache.avro.io.EncoderFactory;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -32,14 +34,17 @@ public class PublisherApp implements AutoCloseable {
 
     private void publish() throws Exception {
         log.info("Publishing");
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
 
-        oos.writeObject(new Stock("STC", price()));
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        Encoder encoder = EncoderFactory.get().directBinaryEncoder(outputStream, null);
 
-        InputStream stream = new ByteArrayInputStream(baos.toByteArray());
-        ByteString data = ByteString.readFrom(stream);
+        Stock stock = new Stock("STC", price());
+        stock.customEncode(encoder);
+        encoder.flush();
+
+        ByteString data = ByteString.copyFrom(outputStream.toByteArray());
         PubsubMessage message = PubsubMessage.newBuilder().setData(data).build();
+
         ApiFuture<String> future = publisher.publish(message);
         String id = future.get(10, TimeUnit.SECONDS);
         log.info("Published: {}", id);
