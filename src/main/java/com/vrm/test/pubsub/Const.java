@@ -13,6 +13,6 @@ public class Const {
     public static final String TOPIC_NAME = "stonks";
     public static final String SUBSCRIPTION_NAME = TOPIC_NAME + "-sub";
     public static final String SCHEMA_NAME = "stonks-schema";
-    public static final String SCHEMA_FILE = "schema/stock.avsc";
+    public static final String SCHEMA_FILE = "/schema/stock.avsc";
 
 }
