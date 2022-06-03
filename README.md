@@ -1,8 +1,13 @@
 # Pubsub Test
 
-### Generating sources from Avro schema
+---
 
-`mvn generate-sources`
+`avro-maven-plugin` doesn't generate `public void customEncode(Encoder out)` at least not by default
+
+### Configuring service account key
+
+Set the environment variable GOOGLE_APPLICATION_CREDENTIALS to the path of the JSON 
+file that contains service account key.
 
 ### Quickstart
 
