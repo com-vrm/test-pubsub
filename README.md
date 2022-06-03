@@ -1,5 +1,9 @@
 # Pubsub Test
 
+### Generating sources from Avro schema
+
+`mvn generate-sources`
+
 ### Quickstart
 
 https://cloud.google.com/pubsub/docs/publish-receive-messages-client-library
